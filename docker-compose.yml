@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  jenkinsdemo:
+    image: ${DOCKER_REGISTRY}jenkinsdemo
+    build:
+      context: .
+      dockerfile: JenkinsDemo/Dockerfile
+    ports:
+      - "10000:80"
