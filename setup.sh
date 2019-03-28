@@ -3,8 +3,8 @@ echo 'start'
 # variables
 echo 'variables:'
 GITHASH=`git rev-parse --short HEAD`
-IMGNAME=netcore-demo
-CONTAINER=netcore-demo-web
+IMGNAME=jenkinsdemo
+CONTAINER=jenkinsdemo
 # publish
 echo 'publish:'
 rm -rf ./publish
