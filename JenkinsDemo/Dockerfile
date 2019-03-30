@@ -47,7 +47,8 @@
 #FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
 WORKDIR /app
- 
+
+FROM microsoft/dotnet:2.1-sdk AS build
 COPY . .
 
 EXPOSE 80
