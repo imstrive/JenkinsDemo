@@ -32,6 +32,6 @@ docker stop jenkinsdemo;
 docker rm jenkinsdemo;
 docker build -t jenkinsdemo:$image_version .;
 docker images;
-docker run -p 10000:80 --restart=always --name jenkinsdemo -d jenkinsdemo:$image_version;
-# -v ~/docker-data/house-web/appsettings.json:/app/appsettings.json -v ~/docker-data/house-web/NLogFile/:/app/NLogFile  
+docker run -p 10000:80 -d --name jenkinsdemo jenkinsdemo:$image_version;
+# -v ~/docker-data/house-web/appsettings.json:/app/appsettings.json -v ~/docker-data/house-web/NLogFile/:/app/NLogFile   --restart=always
 docker logs jenkinsdemo;
