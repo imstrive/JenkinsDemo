@@ -28,10 +28,10 @@ image_version=`date +%Y%m%d%H%M`;
 echo $image_version;
 # cd ~/code/58HouseSearch/HouseCrawler.Core/HouseCrawler.Web;
 git pull --rebase origin master;
-# docker stop jenkinsdemo;
-# docker rm jenkinsdemo;
+docker stop jenkinsdemo;
+docker rm jenkinsdemo;
 docker build -t jenkinsdemo:$image_version .;
 docker images;
-docker run -p 8080:80 --restart=always --name jenkinsdemo -d jenkinsdemo:$image_version;
+docker run -p 10000:80 --restart=always --name jenkinsdemo -d jenkinsdemo:$image_version;
 # -v ~/docker-data/house-web/appsettings.json:/app/appsettings.json -v ~/docker-data/house-web/NLogFile/:/app/NLogFile  
 docker logs jenkinsdemo;
