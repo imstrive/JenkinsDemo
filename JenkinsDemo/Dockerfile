@@ -51,7 +51,7 @@ WORKDIR /app
 FROM microsoft/dotnet:2.1-sdk AS build
 COPY . .
 
-RUN dotnet restore
+#RUN dotnet restore
 RUN dotnet publish ./JenkinsDemo/JenkinsDemo.csproj -o /publish/
 WORKDIR /publish
 
