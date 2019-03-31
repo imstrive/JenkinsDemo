@@ -24,7 +24,7 @@
 
 
 #!/bin/sh
-image_version=`%Y%m%d`;
+image_version=`date +%Y%m%d%H%M`;
 # date +%Y%m%d%H%M`
 echo $image_version;
 # cd ~/code/58HouseSearch/HouseCrawler.Core/HouseCrawler.Web;
