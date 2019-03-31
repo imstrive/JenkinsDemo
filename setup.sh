@@ -24,7 +24,8 @@
 
 
 #!/bin/sh
-image_version=`date +%Y%m%d%H%M`;
+image_version=`%Y%m%d`;
+# date +%Y%m%d%H%M`
 echo $image_version;
 # cd ~/code/58HouseSearch/HouseCrawler.Core/HouseCrawler.Web;
 git pull --rebase origin master;
