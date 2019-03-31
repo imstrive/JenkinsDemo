@@ -52,8 +52,8 @@ WORKDIR /app
 COPY . .
 
 #RUN dotnet restore
-#RUN dotnet publish ./JenkinsDemo/JenkinsDemo.csproj -o /publish/
-#WORKDIR /publish
+RUN dotnet publish ./JenkinsDemo/JenkinsDemo.csproj -o /publish/
+WORKDIR /publish
 
 EXPOSE 80
 
