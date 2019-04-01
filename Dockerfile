@@ -69,19 +69,42 @@
 #ENTRYPOINT ["dotnet", "JenkinsDemo.dll"]
 
 
+#/*¿ÉÓÃµÄdockerfile*/
+#FROM microsoft/dotnet:2.1-aspnetcore-runtime
+#WORKDIR /app
+#EXPOSE 80
+#
+#FROM microsoft/dotnet:2.1-sdk
+#WORKDIR /src
+#COPY . .
+#
+##RUN dotnet restore
+#RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -o /publish/
+#WORKDIR /publish
+#
+#
+#
+#ENTRYPOINT ["dotnet", "JenkinsDemo.dll"]
 
-FROM microsoft/dotnet:2.1-aspnetcore-runtime
+
+
+
+
+
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/dotnet:2.1-sdk
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
 COPY . .
 
 #RUN dotnet restore
+FROM build as publish
 RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -o /publish/
 WORKDIR /publish
 
-
-
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "JenkinsDemo.dll"]
