@@ -104,7 +104,7 @@ COPY . .
 RUN dotnet build "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
 FROM build as publish
 RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
-WORKDIR /publish
+#WORKDIR /publish
 
 FROM base AS final
 WORKDIR /app
