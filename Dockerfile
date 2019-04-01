@@ -100,7 +100,7 @@ WORKDIR /src
 COPY . .
 
 #RUN dotnet restore
-WORKDIR /JenkinsDemo
+#WORKDIR /JenkinsDemo
 #RUN dotnet build "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
 FROM build as publish
 RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
