@@ -100,11 +100,13 @@ WORKDIR /src
 COPY . .
 
 #RUN dotnet restore
+WORKDIR "src/JenkinsDemo"
+RUN dotnet build "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
 FROM build as publish
-RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -o /publish/
+RUN dotnet publish "./JenkinsDemo/JenkinsDemo.csproj" -c Release -o /publish/
 WORKDIR /publish
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app .
+COPY --from=publish /publish .
 ENTRYPOINT ["dotnet", "JenkinsDemo.dll"]
